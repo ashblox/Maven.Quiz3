@@ -109,4 +109,30 @@ public class GetWinner {
         // then
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void isAnyRowAWinnerTest() {
+        // Given
+        String[] row1 = {"X", "O", "X"};
+        String[] row2 = {"O", "O", "O"};
+        String[] row3 = {"X", "X", "O"};
+        String[][] board = {row1, row2, row3};
+        TicTacToe ticTacToe = new TicTacToe(board);
+
+        // When/Then
+        Assert.assertTrue(ticTacToe.isAnyRowAWinner());
+    }
+
+    @Test
+    public void isAnyDiagonalAWinnerTest() {
+        // Given
+        String[] row1 = {"X", "O", "O"};
+        String[] row2 = {"O", "X", "O"};
+        String[] row3 = {"X", "O", "X"};
+        String[][] board = {row1, row2, row3};
+        TicTacToe ticTacToe = new TicTacToe(board);
+
+        // When/Then
+        Assert.assertTrue(ticTacToe.isAnyDiagonalAWinner());
+    }
 }

@@ -17,6 +17,90 @@ public class TranslateSentence {
     }
 
     @Test
+    public void startsWithVowelTest() {
+        String input = "always";
+        Assert.assertTrue(p.startsWithVowel(input));
+    }
+
+    @Test
+    public void findFirstVowelTest() {
+        String input = "thorough";
+        int expected = 2;
+        int actual = p.findFirstVowel(input);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findFirstVowelTest2() {
+        String input = "frogtown";
+        int expected = 2;
+        int actual = p.findFirstVowel(input);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void translateWithConsonantStartTest() {
+        String input = "frogtown";
+        String expected = "ogtownfray";
+        String actual = p.translateWithConsonantStart(input);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void containsAllAlphaCharsTest1() {
+        String input = "This is a test";
+        Assert.assertTrue(p.containsAllAlphaChars(input));
+    }
+
+    @Test
+    public void containsAllAlphaCharsTest2() {
+        String input = "H0w @re you?";
+        Assert.assertFalse(p.containsAllAlphaChars(input));
+    }
+
+    @Test
+    public void containsNoVowelsTest1() {
+        String input = "frkst";
+        Assert.assertTrue(p.containsNoVowels(input));
+    }
+
+    @Test
+    public void containsNoVowelsTest2() {
+        String input = "always";
+        Assert.assertFalse(p.containsNoVowels(input));
+    }
+
+    @Test
+    public void translateOneWordTest1() {
+        String input = "asdf&xf";
+        Assert.assertNull(p.translateOneWord(input));
+    }
+
+    @Test
+    public void translateOneWordTest2() {
+        String input = "artery";
+        String expected = "arteryway";
+        String actual = p.translateOneWord(input);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void translateOneWordTest3() {
+        String input = "Kansas";
+        String expected = "ansasKay";
+        String actual = p.translateOneWord(input);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void translateOneWordTest4() {
+        String input = "ghtvr";
+        String expected = "ghtvray";
+        String actual = p.translateOneWord(input);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testTheQuickBrownFoxJumpsOverTheLazyDog() {
         String input = "The Quick Brown Fox Jumps Over The Lazy Dog";
         String expected = "eThay uickQay ownBray oxFay umpsJay Overway eThay azyLay ogDay";

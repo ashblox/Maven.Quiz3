@@ -51,6 +51,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return map.toString();
+        String str = "";
+        for (Map.Entry<Lab, LabStatus> entry: map.entrySet()) {
+            str += String.format("%s > %s\n", entry.getKey().getName(), entry.getValue().toString());
+        }
+        return str.trim();
     }
 }

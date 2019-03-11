@@ -2,9 +2,7 @@ package rocks.zipcode.io.quiz3.collections;
 
 import rocks.zipcode.io.quiz3.objectorientation.enums.LabStatus;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author leon on 10/12/2018.
@@ -52,7 +50,11 @@ public class Student {
     @Override
     public String toString() {
         String str = "";
-        for (Map.Entry<Lab, LabStatus> entry: map.entrySet()) {
+        Map<Lab, LabStatus> sortedMap = new TreeMap<>(
+                Comparator.comparing(Lab::getName)
+        );
+        sortedMap.putAll(map);
+        for (Map.Entry<Lab, LabStatus> entry: sortedMap.entrySet()) {
             str += String.format("%s > %s\n", entry.getKey().getName(), entry.getValue().toString());
         }
         return str.trim();
